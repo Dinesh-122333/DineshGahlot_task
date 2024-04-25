@@ -1,0 +1,41 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main_font{
+    font-family: "Pacifico", cursive;
+}
+.secondary_font{
+    font-family: "Prompt", sans-serif;
+}
+.nav_color{
+    background-color:rgb(222, 191, 252)
+}
+
+.img_height{
+    height: 600px;
+}
+
+.shadow {
+    box-shadow: 0 2px 4px rgba(222, 191, 252, 0.5); 
+  }
+  
+.header{
+    margin-top: 650px;
+      
+}
+.header_color{
+    color:#d678ff;
+}
+.p_font{
+    font-size: x-large;
+}
+
+.img-fluid {
+    max-width: 100%; /* Ensure images don't exceed column width */
+    height: auto; /* Maintain aspect ratio */
+    /* You can adjust the width and height as needed */
+    width: 100%;
+}
