@@ -118,29 +118,59 @@
             <p class="header_color d-flex justify-content-center main_font py-5 display-6">Photos</p>
         </div>
         <div class="container pb-5">
+            
             <div class="row row-cols-2">
-              <div class="col">
-                <img class="img-fluid" src="./assets/Images/EventPhotography.jpg" alt="">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="./assets/Images/FoodPhotography.jpg" alt="">
-              </div>
-              <div class="col">
-                <img class="img-fluid" src="./assets/Images/NaturePhotography.jpg" alt="">
-              </div>
-              <div class="col mt-5">
-                <img class="img-fluid" src="./assets/Images/WeddingPhotography.jpg" alt="">
-              </div>
-              <div class="col mt-5">
-                <img class="img-fluid" src="./assets/Images/PotraitPhotography.jpg" alt="">
-              </div>
-              <div class="col mt-5">
-                <img class="img-fluid" src="./assets/Images/ArchitecturePhotography.jpg" alt="">
-              </div>
+                <div class="col">
+                    <div class="image-container"  onclick="showExamples('event')">
+                        <img class="img-fluid blur-effect" src="./assets/Images/EventPhotography.jpg" alt="">
+                        <div class="image-title">Event Photography</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image-container"  onclick="showExamples('food')">
+                        <img class="img-fluid blur-effect" src="./assets/Images/FoodPhotography.jpg" alt="">
+                        <div class="image-title">Food Photography</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image-container"  onclick="showExamples('nature')">
+                        <img class="img-fluid blur-effect" src="./assets/Images/NaturePhotography.jpg" alt="">
+                        <div class="image-title">Nature Photography</div>
+                    </div>
+                </div>
+                <div class="col mt-5">
+                    <div class="image-container"  onclick="showExamples('wedding')">
+                        <img class="img-fluid blur-effect" src="./assets/Images/WeddingPhotography.jpg" alt="">
+                        <div class="image-title">Wedding Photography</div>
+                    </div>
+                </div>
+                <div class="col mt-5">
+                    <div class="image-container"  onclick="showExamples('portrait')">
+                        <img class="img-fluid blur-effect" src="./assets/Images/PotraitPhotography.jpg" alt="">
+                        <div class="image-title">Portrait Photography</div>
+                    </div>
+                </div>
+                <div class="col mt-5">
+                    <div class="image-container"  onclick="showExamples('wild')">
+                        <img class="img-fluid blur-effect" src="./assets/Images/WildlifePhotography.jpg" alt="">
+                        <div class="image-title">Wildlife Photography</div>
+                    </div>
+                </div>
             </div>
-          </div>
-    </div>
-    
+        </div>
+        
+        <div id="clearButtonContainer" class="container pt-5">
+            <button class="btn btn-danger" onclick="clearExamples()">Clear All</button>
+        </div>
+        
+        <div id="examplesContainer" class="container pt-3">
+            <h2 id="mainTitle" class="text-center">Select Photography Type</h2>
+            <!-- Example images will be dynamically added here -->
+        </div>
+        
+        
+        
+
       <script src="script.js"></script>
 </body>
 </html>

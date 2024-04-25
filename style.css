@@ -39,3 +39,37 @@
     /* You can adjust the width and height as needed */
     width: 100%;
 }
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-weight: bold;
+    font-family: "Pacifico", cursive;
+    font-size:x-large;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-title {
+    opacity: 1;
+}
+
+/* .blur-effect {
+    filter: blur(3px);
+    transition: filter 0.3s ease;
+} */
+
+.image-container:hover .blur-effect {
+    filter: blur(3px);
+}
