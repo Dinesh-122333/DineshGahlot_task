@@ -1,117 +1,64 @@
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-item');
-const totalSlides = slides.length;
-const intervalTime = 3000; // Change the interval time as needed (in milliseconds)
-
-function showSlide(n) {
-    slides.forEach(slide => slide.style.display = 'none');
-    slides[n].style.display = 'block';
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    showSlide(currentSlide);
-}
-
-
-
-// Automatically advance the carousel
-setInterval(nextSlide, intervalTime);
-
-
-function showExamples(type) {
-    // Define example images for each type of photography
-    const exampleImages = {
-        event: [
-            "./assets/Images/EventPhotography/Event1.jpg",
-            "./assets/Images/EventPhotography/Event2.jpg",
-            "./assets/Images/EventPhotography/Event3.jpg",
-            "./assets/Images/EventPhotography/Event4.jpg",
-            "./assets/Images/EventPhotography/Event5.jpg",
-        ],
-        food: [
-            "./assets/Images/FoodPhotography/Food1.jpg",
-            "./assets/Images/FoodPhotography/Food2.jpg",
-            "./assets/Images/FoodPhotography/Food3.jpg",
-            "./assets/Images/FoodPhotography/Food4.jpg",
-            "./assets/Images/FoodPhotography/Food5.jpg",
-        ],
-        nature: [
-            "./assets/Images/NaturePhotography/Nature1.jpg",
-            "./assets/Images/NaturePhotography/Nature2.jpg",
-            "./assets/Images/NaturePhotography/Nature3.jpg",
-            "./assets/Images/NaturePhotography/Nature4.jpg",
-            "./assets/Images/NaturePhotography/Nature5.jpg",
-        ],
-        wedding: [
-            "./assets/Images/WeddingPhotography/wedding1.jpg",
-            "./assets/Images/WeddingPhotography/wedding2.jpg",
-            "./assets/Images/WeddingPhotography/wedding3.jpg",
-            "./assets/Images/WeddingPhotography/wedding4.jpg",
-            "./assets/Images/WeddingPhotography/wedding5.jpg",
-        ],
-        portrait: [
-            "./assets/Images/PortraitPhotography/Portrait1.jpg",
-            "./assets/Images/PortraitPhotography/Portrait2.jpg",
-            "./assets/Images/PortraitPhotography/Portrait3.jpg",
-            "./assets/Images/PortraitPhotography/Portrait4.jpg",
-            "./assets/Images/PortraitPhotography/Portrait5.jpg",
-        ],
-        wild: [
-            "./assets/Images/WildlifePhotography/Wildlife1.jpg",
-            "./assets/Images/WildlifePhotography/Wildlife2.jpg",
-            "./assets/Images/WildlifePhotography/Wildlife3.jpg",
-            "./assets/Images/WildlifePhotography/Wildlife4.jpg",
-            "./assets/Images/WildlifePhotography/Wildlife5.jpg",
-            "./assets/Images/WildlifePhotography/Wildlife6.jpg",
-            "./assets/Images/WildlifePhotography/Wildlife7.jpg",
-        ]
-        // Add more types and corresponding example images as needed
+function showExamples(category) {
+    const photoData = {
+        event: ['./assets/Images/EventPhotography/Event1.jpg', './assets/Images/EventPhotography/Event2.jpg', './assets/Images/EventPhotography/Event3.jpg', './assets/Images/EventPhotography/Event4.jpg', './assets/Images/EventPhotography/Event5.jpg', './assets/Images/EventPhotography/Event6.jpg'],
+        food: ['./assets/Images/FoodPhotography/Food1.jpg', './assets/Images/FoodPhotography/Food2.jpg', './assets/Images/FoodPhotography/Food3.jpg', './assets/Images/FoodPhotography/Food4.jpg', './assets/Images/FoodPhotography/Food5.jpg', './assets/Images/FoodPhotography/Food6.jpg'],
+        nature: ['./assets/Images/NaturePhotography/Nature1.jpg', './assets/Images/NaturePhotography/Nature2.jpg', './assets/Images/NaturePhotography/Nature3.jpg', './assets/Images/NaturePhotography/Nature4.jpg', './assets/Images/NaturePhotography/Nature5.jpg', './assets/Images/NaturePhotography/Nature6.jpg'],
+        wedding: ['./assets/Images/WeddingPhotography/wedding1.jpg', './assets/Images/WeddingPhotography/wedding2.jpg', './assets/Images/WeddingPhotography/wedding3.jpg', './assets/Images/WeddingPhotography/wedding4.jpg', './assets/Images/WeddingPhotography/wedding5.jpg', './assets/Images/WeddingPhotography/wedding6.jpg'],
+        portrait: ['./assets/Images/PortraitPhotography/Portrait1.jpg', './assets/Images/PortraitPhotography/Portrait2.jpg', './assets/Images/PortraitPhotography/Portrait3.jpg', './assets/Images/PortraitPhotography/Portrait4.jpg', './assets/Images/PortraitPhotography/Portrait5.jpg', './assets/Images/PortraitPhotography/Portrait6.jpg'],
+        wild: ['./assets/Images/WildlifePhotography/Wildlife1.jpg', './assets/Images/WildlifePhotography/Wildlife2.jpg', './assets/Images/WildlifePhotography/Wildlife3.jpg', './assets/Images/WildlifePhotography/Wildlife4.jpg', './assets/Images/WildlifePhotography/Wildlife5.jpg', './assets/Images/WildlifePhotography/Wildlife6.jpg']
+        // Add more categories and their respective photo URLs here
     };
 
-    const examplesContainer = document.getElementById("examplesContainer");
-    examplesContainer.innerHTML = ""; // Clear previous examples
+    const photos = photoData[category];
 
-    // Create image elements for each example image and append them to the container
-    exampleImages[type].forEach(image => {
-        const imgElement = document.createElement("img");
-        imgElement.setAttribute("src", image);
-        imgElement.classList.add("img-fluid", "mr-2", "mb-2");
-        examplesContainer.appendChild(imgElement);
+    const examplesContainer = document.getElementById('examplesContainer');
+    examplesContainer.innerHTML = '';
+
+    // Check if mainTitle element exists
+    const mainTitle = document.getElementById('mainTitle');
+    if (mainTitle) {
+        // If it exists, set its text content
+        mainTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    } else {
+        // If it doesn't exist, create a new h2 element and set its text content
+        const newMainTitle = document.createElement('h2');
+        newMainTitle.id = 'mainTitle';
+        newMainTitle.classList.add('text-center', 'main_font', 'header_color', 'py-5');
+        newMainTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+        examplesContainer.prepend(newMainTitle);
+    }
+
+    const gridContainer = document.createElement('div');
+    gridContainer.classList.add('row', 'row-cols-3');
+    photos.forEach(photo => {
+        const col = document.createElement('div');
+        col.classList.add('col', 'mb-3');
+        const imageContainer = document.createElement('div');
+        imageContainer.classList.add('image-container');
+        const img = document.createElement('img');
+        img.classList.add('img-fluid');
+        img.src = photo;
+        img.alt = 'Photo';
+        imageContainer.appendChild(img);
+        col.appendChild(imageContainer);
+        gridContainer.appendChild(col);
     });
 
-    // Show the "Clear All" button container
-    const clearButtonContainer = document.getElementById("clearButtonContainer");
-    clearButtonContainer.classList.remove("d-none");
-
-    // Set main title based on the selected photography type
-    const mainTitle = document.getElementById("mainTitle");
-    mainTitle.textContent = getMainTitle(type);
+    examplesContainer.appendChild(gridContainer);
 }
-
 function clearExamples() {
-    const examplesContainer = document.getElementById("examplesContainer");
-    examplesContainer.innerHTML = ""; // Clear all images
-
-    // Hide the "Clear All" button container
-    const clearButtonContainer = document.getElementById("clearButtonContainer");
-    clearButtonContainer.classList.add("d-none");
+    // Get the examples container
+    const examplesContainer = document.getElementById('examplesContainer');
+    
+    // Remove all child elements
+    while (examplesContainer.firstChild) {
+        examplesContainer.removeChild(examplesContainer.firstChild);
+    }
 }
 
-function getMainTitle(type) {
-    const mainTitles = {
-        event: "Event Photography",
-        food: "Food Photography",
-        nature: "Nature Photography",
-        wedding: "Wedding Photography",
-        portrait: "Portrait Photography",
-        wild: "Wildlife Photography"
-    };
-
-    return mainTitles[type];
-}
+$('.navbar-nav a').click(function(){
+    $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top
+    }, 800);
+    return false;
+});
