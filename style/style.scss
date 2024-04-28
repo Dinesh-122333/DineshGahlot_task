@@ -1,0 +1,92 @@
+$nav-color: rgb(222, 191, 252);
+$main-font: "Pacifico", cursive;
+$secondary-font: "Prompt", sans-serif;
+$header-color: #d678ff;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main_font {
+  font-family: $main-font;
+}
+
+.secondary_font {
+  font-family: $secondary-font;
+}
+
+.nav_color {
+  background-color: $nav-color;
+}
+
+.img_height {
+  height: 600px;
+}
+
+.shadow {
+  box-shadow: 0 2px 4px rgba($nav-color, 0.5);
+}
+
+.header_color {
+  color: $header-color;
+}
+
+.p_font {
+  font-size: x-large;
+}
+
+.img-fluid {
+  max-width: 100%; /* Ensure images don't exceed column width */
+  height: auto; /* Maintain aspect ratio */
+  /* You can adjust the width and height as needed */
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+
+  .image-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-weight: bold;
+    font-family: $main-font;
+    font-size: x-large;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    .image-title {
+      opacity: 1;
+    }
+
+    .blur-effect {
+      filter: blur(3px);
+    }
+  }
+}
+
+.button {
+  background-color: white;
+  color: $header-color;
+  border-color: $header-color;
+
+  &:hover,
+  &:active {
+    background-color: $header-color;
+    color: white;
+    box-shadow: 0px 0px 10px $header-color;
+  }
+}
+
+.background_carousel {
+  background-color: #8e7f94;
+}

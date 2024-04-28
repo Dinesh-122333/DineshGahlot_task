@@ -56,9 +56,21 @@ function clearExamples() {
     }
 }
 
-$('.navbar-nav a').click(function(){
-    $('html, body').animate({
-        scrollTop: $($(this).attr('href')).offset().top
-    }, 800);
-    return false;
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if(window.scrollY > 600) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
 });
