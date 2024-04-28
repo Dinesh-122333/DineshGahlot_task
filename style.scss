@@ -7,15 +7,15 @@ $header-color: #d678ff;
   margin: 0;
   padding: 0;
 }
-
+// primaray font
 .main_font {
   font-family: $main-font;
 }
-
+// secondary font
 .secondary_font {
   font-family: $secondary-font;
 }
-
+// nav color
 .nav_color {
   background-color: $nav-color;
 }
@@ -86,7 +86,7 @@ $header-color: #d678ff;
     box-shadow: 0px 0px 10px $header-color;
   }
 }
-
+// button background color
 .background_carousel {
   background-color: #8e7f94;
 }
