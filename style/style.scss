@@ -7,18 +7,39 @@ $header-color: #d678ff;
   margin: 0;
   padding: 0;
 }
-
+// primaray font
 .main_font {
   font-family: $main-font;
 }
-
+// secondary font
 .secondary_font {
   font-family: $secondary-font;
 }
-
+// nav color
 .nav_color {
   background-color: $nav-color;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
+.navbar {
+  &.scrolled {
+    background-color: rgba(235, 186, 255, 0.5); // Change this to the desired color
+    color:black;
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    &.active {
+      // text-decoration: underline;
+      font-size: 18px;
+      font-weight: 700;
+      color:black
+    }
+  }
+}
+
 
 .img_height {
   height: 600px;
@@ -66,6 +87,7 @@ $header-color: #d678ff;
   &:hover {
     .image-title {
       opacity: 1;
+      cursor: pointer;
     }
 
     .blur-effect {
@@ -86,7 +108,8 @@ $header-color: #d678ff;
     box-shadow: 0px 0px 10px $header-color;
   }
 }
-
+// button background color
 .background_carousel {
   background-color: #8e7f94;
 }
+

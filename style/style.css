@@ -13,6 +13,19 @@
 
 .nav_color {
   background-color: rgb(222, 191, 252);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navbar.scrolled {
+  background-color: rgba(235, 186, 255, 0.5);
+  color: black;
+}
+
+.navbar-nav .nav-link.active {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
 }
 
 .img_height {
@@ -59,6 +72,7 @@
 }
 .image-container:hover .image-title {
   opacity: 1;
+  cursor: pointer;
 }
 .image-container:hover .blur-effect {
   filter: blur(3px);
@@ -78,7 +92,5 @@
 .background_carousel {
   background-color: #8e7f94;
 }
-.background_color{
-  background-color:#d678ff;
-}
+
 /*# sourceMappingURL=style.css.map */
